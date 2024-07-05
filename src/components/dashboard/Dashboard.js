@@ -1,60 +1,28 @@
 import * as React from 'react';
-import { Tooltip, Typography, IconButton, AppBar, Box } from '@mui/material';
-import { useNavigate, Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom';
 
-import CalculateIcon from '@mui/icons-material/Calculate';
-import FunctionsIcon from '@mui/icons-material/Functions';
-import EventNoteIcon from '@mui/icons-material/EventNote';
 
-import './dashboard.css';
+import Header from '../header/Header';
+import { Typography } from '@mui/material';
+
 
 export default function Dashboard() {
-  const navigate = useNavigate();
+  const [currentDate, setCurrentDate] = React.useState();
+
+  React.useEffect(() => {
+    const d = new Date();
+    setCurrentDate(d.toLocaleString('default', { month: 'long', year: "numeric" }).toUpperCase())
+  }, [])
 
   return (
-    <>
-      <AppBar position="static" color="primary">
-
-        <div className='dashboard-container'>
-          <Typography variant="h6" gutterBottom align='left' component="div">
-            <Box fontWeight='fontWeightBold' display='inline'>
-              BUDGET APP
-            </Box>
-          </Typography>
-
-          <div className='dashboard-menu'>
-            <Tooltip title="Budget view">
-              <IconButton
-                size="small"
-                sx={{ ml: 2 }}
-                onClick={() => navigate("/")}
-              >
-                <CalculateIcon sx={{ width: 32, height: 32, color: 'white' }}>B</CalculateIcon>
-              </IconButton>
-            </Tooltip>
-
-            <Tooltip title="Expenses">
-              <IconButton
-                size="small"
-                sx={{ ml: 2 }}
-                onClick={() => navigate("/expenses")}
-              >
-                <FunctionsIcon sx={{ width: 32, height: 32, color: 'white' }}>M</FunctionsIcon>
-              </IconButton>
-            </Tooltip>
-
-            <Tooltip title="Plan budget">
-              <IconButton
-                size="small"
-                sx={{ ml: 2 }}
-              >
-                <EventNoteIcon sx={{ width: 32, height: 32, color: 'white' }}>M</EventNoteIcon>
-              </IconButton>
-            </Tooltip>
-          </div>
+    <div >
+      <Header />
+      <div>
+        <div className='budget-view'>
+          <Typography variant="h6" gutterBottom sx={{ padding: '10px', fontWeight: 700 }}>{currentDate}</Typography>
         </div>
-      </AppBar >
-      <Outlet />
-    </>
+        <Outlet />
+      </div>
+    </div >
   )
 }
