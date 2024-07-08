@@ -1,0 +1,6 @@
+.budget-info {
+    display: flex;
+    flex-flow: row;
+    padding: 10px;
+    margin: 5px;
+}

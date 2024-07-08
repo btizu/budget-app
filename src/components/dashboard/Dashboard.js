@@ -3,8 +3,9 @@ import { Outlet } from 'react-router-dom';
 
 
 import Header from '../header/Header';
-import { Typography } from '@mui/material';
+import { Card, CardContent, Typography } from '@mui/material';
 
+import './dashboard.css';
 
 export default function Dashboard() {
   const [currentDate, setCurrentDate] = React.useState();
@@ -20,6 +21,26 @@ export default function Dashboard() {
       <div>
         <div className='budget-view'>
           <Typography variant="h6" gutterBottom sx={{ padding: '10px', fontWeight: 700 }}>{currentDate}</Typography>
+          <div className='budget-info'>
+            <Card sx={{ margin: 5 }}>
+              <CardContent>
+                <Typography >Budget </Typography>
+                <Typography >{0} RON</Typography>
+              </CardContent>
+            </Card>
+            <Card sx={{ margin: 5 }}>
+              <CardContent>
+                <Typography >Expenses </Typography>
+                <Typography >{0} RON</Typography>
+              </CardContent>
+            </Card>
+            <Card sx={{ margin: 5 }}>
+              <CardContent>
+                <Typography >Balance </Typography>
+                <Typography >{0} RON</Typography>
+              </CardContent>
+            </Card>
+          </div>
         </div>
         <Outlet />
       </div>

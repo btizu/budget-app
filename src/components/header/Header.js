@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import CalculateIcon from '@mui/icons-material/Calculate';
 import FunctionsIcon from '@mui/icons-material/Functions';
 import EventNoteIcon from '@mui/icons-material/EventNote';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 import './header.css';
 
@@ -49,6 +50,15 @@ export default function Header() {
                                 sx={{ ml: 2 }}
                             >
                                 <EventNoteIcon sx={{ width: 32, height: 32, color: 'white' }}>M</EventNoteIcon>
+                            </IconButton>
+                        </Tooltip>
+
+                        <Tooltip title="Settings">
+                            <IconButton
+                                size="small"
+                                sx={{ ml: 2 }}
+                            >
+                                <SettingsIcon sx={{ width: 32, height: 32, color: 'white' }}>M</SettingsIcon>
                             </IconButton>
                         </Tooltip>
                     </div>
