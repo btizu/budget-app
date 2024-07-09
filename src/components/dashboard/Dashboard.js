@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 
 
 import Header from '../header/Header';
+import Transactions from './transactions/Transactions';
 import { Card, CardContent, Typography } from '@mui/material';
 
 import './dashboard.css';
@@ -19,7 +20,7 @@ export default function Dashboard() {
     <div >
       <Header />
       <div>
-        <div className='budget-view'>
+        <div className='budget-info'>
           <Typography variant="h6" gutterBottom sx={{ padding: '10px', fontWeight: 700 }}>{currentDate}</Typography>
           <div className='budget-info'>
             <Card sx={{ margin: 5 }}>
@@ -41,6 +42,9 @@ export default function Dashboard() {
               </CardContent>
             </Card>
           </div>
+        </div>
+        <div>
+          <Transactions />
         </div>
         <Outlet />
       </div>

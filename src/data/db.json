@@ -1,3 +1,10 @@
 {
-    "budget": []
+    "budget": [
+        {
+            "id": "1",
+            "modified": "",
+            "amount": "0",
+            "changes": []
+        }
+    ]
 }
